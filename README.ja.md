@@ -48,7 +48,29 @@ cd pythonic
 # 上記のいずれかのコピーコマンドを実行
 ```
 
-Claude Codeをお使いの方は、同じファイルを `.claude/skills/pythonic/` に置いてください（環境によってはファイル名をSKILL.mdに変更する必要があります）。Cursorの場合は、主要なルールを `.cursor/rules` や `.mdc` ファイルに手動で移せばだいたい動きます。
+## 他のエージェントでも使えます
+
+このスキルは2026年現在で複数のエージェントツールが共通で理解できる `SKILL.md` 形式を採用しています。
+
+**対応している配置先**（ディレクトリ名は必ず `pythonic` にしてください）:
+
+- Grok: `~/.grok/skills/pythonic/skill.md`
+- Opencode: `~/.config/opencode/skills/pythonic/SKILL.md`（プロジェクト内は `.opencode/skills/pythonic/SKILL.md` も可）
+- Claude Code: `~/.claude/skills/pythonic/SKILL.md`（ファイル名を `SKILL.md` に変更する必要があります）
+- HermesAgent: `~/.hermes/skills/pythonic/SKILL.md`
+- Cursor / Codex系: `.cursor/rules/` に `.mdc` として置くか、`.claude/skills/` のパスを流用
+
+追加後はTUIやエージェントの再起動、またはスキルリロードコマンドを実行してください。
+
+UnixでのOpencode向けの例:
+
+```bash
+git clone https://github.com/drkai-lab/pythonic.git /tmp/p && \
+mkdir -p ~/.config/opencode/skills/pythonic && \
+cp /tmp/p/skill.md ~/.config/opencode/skills/pythonic/SKILL.md
+```
+
+Windows (PowerShell) の場合は、Grokの項目で示した `Join-Path` + `New-Item -Force` のパターンで同じディレクトリ構造に置けば動作します。
 
 ## 具体例（2つ）
 

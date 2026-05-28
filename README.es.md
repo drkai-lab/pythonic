@@ -48,7 +48,29 @@ cd pythonic
 # luego ejecuta uno de los comandos de copia de arriba
 ```
 
-Los usuarios de Claude Code pueden colocar el mismo archivo en `.claude/skills/pythonic/` (renómbralo a SKILL.md si tu harness es estricto con el nombre). En Cursor puedes extraer las reglas principales a `.cursor/rules` o archivos `.mdc` con muy pocos cambios.
+## Funciona con otros agentes también
+
+Este skill usa el formato `SKILL.md` común que entienden varios agentes en 2026.
+
+**Ubicaciones soportadas** (la carpeta debe llamarse `pythonic`):
+
+- Grok: `~/.grok/skills/pythonic/skill.md`
+- Opencode: `~/.config/opencode/skills/pythonic/SKILL.md` (o `.opencode/skills/pythonic/SKILL.md` dentro del proyecto)
+- Claude Code: `~/.claude/skills/pythonic/SKILL.md` (renombra el archivo a `SKILL.md`)
+- HermesAgent: `~/.hermes/skills/pythonic/SKILL.md`
+- Cursor / Codex: ponlo en `.cursor/rules/` como `.mdc` o reutiliza la ruta `.claude/skills/`
+
+Después de colocarlo, reinicia el TUI/agente o ejecuta el comando de recarga de skills.
+
+Ejemplo rápido para Opencode en Unix:
+
+```bash
+git clone https://github.com/drkai-lab/pythonic.git /tmp/p && \
+mkdir -p ~/.config/opencode/skills/pythonic && \
+cp /tmp/p/skill.md ~/.config/opencode/skills/pythonic/SKILL.md
+```
+
+En Windows con PowerShell usa el mismo patrón de `Join-Path` + `New-Item -Force` que se muestra en la sección de Grok.
 
 ## Dos ejemplos concretos
 

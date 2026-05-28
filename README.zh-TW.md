@@ -48,7 +48,29 @@ cd pythonic
 # 再執行上面任一複製指令
 ```
 
-使用 Claude Code 的人可以把同一個檔案放到 `.claude/skills/pythonic/` 下面（如果你的環境對檔名有嚴格要求，就改成 SKILL.md）。Cursor 使用者可以把核心規則手動摘到 `.cursor/rules` 或 `.mdc` 檔案裡，改寫量很小。
+## 也支援其他 Agent
+
+這個 skill 採用 2026 年多款 agent 工具共通的 `SKILL.md` 格式。
+
+**支援的放置位置**（資料夾名稱必須是 `pythonic`）：
+
+- Grok: `~/.grok/skills/pythonic/skill.md`
+- Opencode: `~/.config/opencode/skills/pythonic/SKILL.md`（專案內可用 `.opencode/skills/pythonic/SKILL.md`）
+- Claude Code: `~/.claude/skills/pythonic/SKILL.md`（需要將檔名改為 `SKILL.md`）
+- HermesAgent: `~/.hermes/skills/pythonic/SKILL.md`
+- Cursor / Codex 系: 放到 `.cursor/rules/` 做成 `.mdc`，或直接沿用 `.claude/skills/` 路徑
+
+放置完成後請重啟 TUI / Agent，或執行對應的 skill reload 指令。
+
+Unix 給 Opencode 的快速複製範例：
+
+```bash
+git clone https://github.com/drkai-lab/pythonic.git /tmp/p && \
+mkdir -p ~/.config/opencode/skills/pythonic && \
+cp /tmp/p/skill.md ~/.config/opencode/skills/pythonic/SKILL.md
+```
+
+Windows PowerShell 使用者請參考前面 Grok 章節的 `Join-Path` + `New-Item -Force` 模式建立相同目錄結構。
 
 ## 兩個具體例子
 

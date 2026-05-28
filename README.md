@@ -48,7 +48,29 @@ cd pythonic
 # then one of the copy commands above
 ```
 
-Claude Code users can drop the same file into `.claude/skills/pythonic/` (rename to SKILL.md if your harness is strict about the filename). Cursor users can lift the core rules into `.cursor/rules` or `.mdc` files with minimal editing.
+## Works with other agents
+
+This skill follows the common `SKILL.md` format used by several agent tools in 2026.
+
+**Supported locations** (directory must be named `pythonic`):
+
+- Grok: `~/.grok/skills/pythonic/skill.md`
+- Opencode: `~/.config/opencode/skills/pythonic/SKILL.md` (or `.opencode/skills/pythonic/SKILL.md` per project)
+- Claude Code: `~/.claude/skills/pythonic/SKILL.md` (rename the file to `SKILL.md`)
+- HermesAgent: `~/.hermes/skills/pythonic/SKILL.md`
+- Cursor / Codex: `.cursor/rules/` (as `.mdc`) or reuse the `.claude/skills/` path
+
+Restart the TUI/agent or run its skill reload command after adding.
+
+Quick copy example (Opencode on Unix):
+
+```bash
+git clone https://github.com/drkai-lab/pythonic.git /tmp/p && \
+mkdir -p ~/.config/opencode/skills/pythonic && \
+cp /tmp/p/skill.md ~/.config/opencode/skills/pythonic/SKILL.md
+```
+
+Windows users: same structure with the `Join-Path` + `New-Item -Force` pattern shown in the Grok section above.
 
 ## Two concrete examples
 

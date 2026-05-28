@@ -48,7 +48,29 @@ cd pythonic
 # затем выполняем одну из команд копирования выше
 ```
 
-Пользователи Claude Code могут положить тот же файл в `.claude/skills/pythonic/` (при необходимости переименовать в SKILL.md, если harness требует именно такое имя). В Cursor основные правила можно вручную перенести в `.cursor/rules` или `.mdc` — правок будет немного.
+## Работает и в других агентах
+
+Скилл использует формат `SKILL.md`, который понимают несколько популярных агентов в 2026 году.
+
+**Поддерживаемые пути** (папка обязательно должна называться `pythonic`):
+
+- Grok: `~/.grok/skills/pythonic/skill.md`
+- Opencode: `~/.config/opencode/skills/pythonic/SKILL.md` (внутри проекта можно `.opencode/skills/pythonic/SKILL.md`)
+- Claude Code: `~/.claude/skills/pythonic/SKILL.md` (файл нужно переименовать в `SKILL.md`)
+- HermesAgent: `~/.hermes/skills/pythonic/SKILL.md`
+- Cursor / Codex: кидайте в `.cursor/rules/` как `.mdc` или используйте путь `.claude/skills/`
+
+После добавления перезапустите TUI/агента или выполните команду перезагрузки скиллов.
+
+Быстрый пример для Opencode под Unix:
+
+```bash
+git clone https://github.com/drkai-lab/pythonic.git /tmp/p && \
+mkdir -p ~/.config/opencode/skills/pythonic && \
+cp /tmp/p/skill.md ~/.config/opencode/skills/pythonic/SKILL.md
+```
+
+На Windows в PowerShell используйте ту же схему через `Join-Path` + `New-Item -Force`, что и в разделе про Grok.
 
 ## Два конкретных примера
 
